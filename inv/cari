@@ -1,0 +1,32 @@
+<?php
+include "connect.php";
+$name= $_POST['Idbarang']; 
+$q = "SELECT * from barang where Id_buku like '%$Idbarang%' "; 
+$result = mysql_query($q); 
+echo "<center>";
+echo "<h2> Hasil Searching </h2>";
+echo "<table border='1' cellpadding='5' cellspacing='8'>";
+echo "
+<tr bgcolor='orange'>
+<td>Idbarang</td>
+<td>Namabarang</td>
+<td>Stok</td>
+<td>KetTempat</td>
+<td>KetKondisi</td>
+<td>Ketpemilik</td>
+<td>TangalMasuk</td>
+</tr>";
+while ($data = mysql_fetch_array($result)) {  
+echo "
+<tr>
+<td>".$data['Idbarang']."</td>
+<td>".$data['Namabarang']."</td>
+<td>".$data['stok']."</td>
+<td>".$data['KetTempat']."</td>
+<td>".$data['KetKondisi']."</td>
+<td>".$data['Ketpemilik']."</td>
+<td>".$data['TanggalMasuk']."</td>
+</tr>";
+}
+echo "</table>";
+?>
